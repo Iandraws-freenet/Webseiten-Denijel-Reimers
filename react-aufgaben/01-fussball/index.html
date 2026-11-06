@@ -35,6 +35,7 @@
 
                     {/* ✏️ DEIN HTML 2: Wappen (img) und Name (h2) */}
 
+                <img src={team.strBadge} alt={team.strTeam} /><h2>{team.strTeam}</h2>
 
                 </div>
             );
@@ -56,7 +57,12 @@
                     <button className="schliessen" onClick={onSchliessen}>✕</button>
 
                     {/* ✏️ DEIN HTML 3: Name (h2), Gegründet, Stadion, Ort, Beschreibung, Link zur Webseite */}
-
+                    <h2>{team.strTeam}</h2>
+                    <p><strong>Gegründet:</strong> {team.intFormedYear}</p>
+                    <p><strong>Stadion:</strong> {team.strStadium}</p>
+                    <p><strong>Ort:</strong> {team.strLocation}</p>
+                    <p>{beschreibung}</p>
+                    <a href={webseite} target="_blank">Zur Webseite</a>
 
                 </div>
             );
@@ -88,7 +94,7 @@
 
                     <header>
                         {/* ✏️ DEIN HTML 1: Überschrift (h1) und Untertitel (p className="untertitel") */}
-
+                    <p className="untertitel">Fußball App</p>
 
                     </header>
 

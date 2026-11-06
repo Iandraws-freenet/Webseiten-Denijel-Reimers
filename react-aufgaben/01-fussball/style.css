@@ -101,52 +101,62 @@ footer {
    ===================================================== */
 
 /* CSS 1 – Seite: Hintergrundfarbe, Schriftfarbe, Schriftart */
-body {
+body {background-color:rgb(6, 177, 49);
+    
 
 }
 
 /* CSS 2 – Überschrift und Untertitel */
-h1 {
+h1{ color:rgb(255, 255, 255);
+    font-family: 'Arial', sans-serif;
 
 }
 
-.untertitel {
-
+.untertitel {color:black;
 }
 
 /* CSS 3 – Liga-Buttons */
-.liga-button {
+.liga-button {color:rgb(255, 255, 255);
+    background-color:rgb(0, 0, 0);
+
+
+
 
 }
 
-.liga-button.aktiv {
+.liga-button.aktiv { 
 
 }
 
 /* CSS 4 – Karte */
-.karte {
+.karte { border-radius: 10px;  border-radius: 10px;
+    border: 2px solid rgb(0, 0, 0);
 
 }
 
 /* CSS 5 – Wappen */
-.karte img {
+.karte img {width: 150px;
+     
+    
 
 }
 
-.karte h2 {
+.karte h2 {   
 
 }
 
 /* CSS 6 – Detail-Box */
-.details {
+.details {background-color:rgba(103, 211, 15, 0.034);
+     border-radius: 10px;
+    border: 3px solid rgb(0, 0, 0);
 
 }
 
-.details h2 {
+.details h2 {  
 
 }
 
-.details a {
+.details a { 
 
 }
 
