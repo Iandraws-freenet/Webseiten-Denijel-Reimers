@@ -53,7 +53,7 @@ Suche im Code nach **`DEIN HTML`**. Diese Werte kannst du benutzen:
 - [ ] **HTML 1 – Kopf:** `<h1>` mit „👑 Mein Clash-Royale-Deck“ und ein `<p className="untertitel">`.
 - [ ] **HTML 2 – Karte:** Schreibe in die Karte:
   - die Elixier-Kosten in einem `<span className="elixier">`
-  - das Bild: `<img src={bild} alt={karte.name} />`
+  - das Bild: `  <img src={bild} alt={karte.name} />`
   - den Namen in einer `<h3>`
   - die Seltenheit in einem `<p className="seltenheit">`
 - [ ] **HTML 3 – Deck-Karte:** Klicke ein paar Karten an. Oben im Deck erscheinen leere Felder. Schreibe hinein:

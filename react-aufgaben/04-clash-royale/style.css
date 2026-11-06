@@ -174,70 +174,79 @@ footer {
    ===================================================== */
 
 /* CSS 1 – Seite */
-body {
+body {background-color:rgb(9, 31, 95);
+ 
 
 }
 
 /* CSS 2 – Überschrift und Untertitel */
-h1 {
+h1 {color: darkgoldenrod;
 
 }
 
-.untertitel {
-
+.untertitel {color: darkgoldenrod;
+color: darkgoldenrod
 }
 
 /* CSS 3 – Deck-Box */
-.deck-box {
+.deck-box{background-color: lightblue;
+    border-radius: 10px;
+    border: 2px solid rgb(131, 131, 156);
 
 }
 
-.deck-karte {
+.deck-karte{
+    border: 2px solid rgb(0, 0, 0);
+    
+    
 
 }
 
 /* CSS 4 – Leere Deck-Plätze */
-.leer-platz {
+.leer-platz {border: 2px dashed rgb(0, 0, 0);
 
 }
 
 /* CSS 5 – Filter-Buttons */
-.filter-button {
-
+.filter-button{
 }
 
-.filter-button.aktiv {
+.filter-button.aktiv {color: darkgoldenrod;
 
 }
 
 /* CSS 6 – Karte */
-.karte {
+.karte {border: 2px solid rgb(187, 171, 24);
+    img {
+        border: 10px;
+    }
 
 }
 
 /* CSS 7 – Seltenheits-Farben (border-color) */
-.common {
+.common {color:gray
 
 }
 
-.rare {
+.rare {color:blue;
 
 }
 
-.epic {
+.epic {color:purple
 
 }
 
-.legendary {
+.legendary {color:darkgoldenrod
 
 }
 
-.champion {
+.champion {color:aqua;
 
 }
 
 /* CSS 8 – Elixier-Tropfen */
-.elixier {
+.elixier {background-color: blueviolet
+    
 
 }
 
@@ -247,7 +256,8 @@ h1 {
 }
 
 /* CSS 10 – "Deck komplett"-Box und Fußzeile */
-.deck-komplett {
+.deck-komplett {color:whitesmoke
+    opacity: 0.4
 
 }
 

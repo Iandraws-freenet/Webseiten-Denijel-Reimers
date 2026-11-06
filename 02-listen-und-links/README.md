@@ -28,7 +28,7 @@ Du erstellst eine Seite mit deinen Lieblingsdingen und nützlichen Links.
 
 <a href="https://www.example.com" target="_blank">Zur Beispielseite</a>
 ```
-- Für „Nach oben“: Gib der `<h1>` ein `id="oben"` und verlinke mit `<a href="#oben">`.
+- Für „Nach oben“: Gib der `<h1>` ein `id="oben"` und verlinke mit ``id="oben"`.
 
 ## Bonus
 - [ ] Baue eine **verschachtelte Liste** (eine Liste in einem `<li>`), z. B. „Obst“ → „Apfel, Banane“.
