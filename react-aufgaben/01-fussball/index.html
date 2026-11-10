@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- React und Babel aus dem Internet laden (nicht verändern) -->
-    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7.26.4/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.4/babel.min.js"></script>
 </head>
 <body>
 
@@ -18,6 +18,22 @@
     <script type="text/babel">
 
         const { useState, useEffect } = React;
+
+        // Zwischenspeicher: Jede Adresse wird pro Browser-Tab nur einmal geladen.
+        // So bleiben wir unter dem Limit der kostenlosen API, auch bei vielen Klicks und Reloads.
+        function holeDaten(adresse) {
+            try {
+                const gespeichert = sessionStorage.getItem(adresse);
+                if (gespeichert) return Promise.resolve(JSON.parse(gespeichert));
+            } catch (e) { /* ohne Zwischenspeicher weiterarbeiten */ }
+            return fetch(adresse)
+                .then((antwort) => antwort.json())
+                .then((daten) => {
+                    try { sessionStorage.setItem(adresse, JSON.stringify(daten)); } catch (e) { }
+                    return daten;
+                });
+        }
+
 
         const LIGEN = [
             { name: "Bundesliga", code: "German_Bundesliga" },
@@ -69,8 +85,7 @@
             const [spiel, setSpiel] = useState(null);
             useEffect(() => {
                 setSpiel(null);
-                fetch("https://www.thesportsdb.com/api/v1/json/123/eventslast.php?id=" + team.idTeam)
-                    .then((antwort) => antwort.json())
+                holeDaten("https://www.thesportsdb.com/api/v1/json/123/eventslast.php?id=" + team.idTeam)
                     .then((daten) => setSpiel(daten.results ? daten.results[0] : null));
             }, [team.idTeam]);
 
@@ -167,8 +182,7 @@
             useEffect(() => {
                 setLaedt(true);
                 setAusgewaehlt(null);
-                fetch("https://www.thesportsdb.com/api/v1/json/123/search_all_teams.php?l=" + liga)
-                    .then((antwort) => antwort.json())
+                holeDaten("https://www.thesportsdb.com/api/v1/json/123/search_all_teams.php?l=" + liga)
                     .then((daten) => {
                         setTeams(daten.teams || []);
                         setLaedt(false);
