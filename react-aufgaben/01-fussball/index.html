@@ -45,7 +45,6 @@
         // Die Detail-Box, wenn man ein Team anklickt
         // =====================================================
         function Details({ team, onSchliessen }) {
-
             // Fertig: kurzer Text (deutsch oder englisch) und Webseite
             const text = team.strDescriptionDE || team.strDescriptionEN || "";
             const beschreibung = text.slice(0, 300) + " ...";
@@ -73,6 +72,7 @@
                     .then((antwort) => antwort.json())
                     .then((daten) => setSpiel(daten.results ? daten.results[0] : null));
             }, [team.idTeam]);
+            console.log(spiel)
 
             return (
                 <div className="details">
@@ -92,6 +92,7 @@
                         {team.strBanner && (
                             <>
                                 {/* ✏️ DEIN HTML 5: Banner-Bild (img className="banner") mit src={team.strBanner} */}
+                            <img className="banner" src={team.strBanner} alt="wappen von"/>
 
                             </>
                         )}
@@ -99,12 +100,15 @@
                         <div className="steckbrief">
                             {/* ✏️ DEIN HTML 6: Überschrift (h3) "📋 Steckbrief", ein p mit den Spitznamen
                                                und ein p "Wettbewerbe:" */}
-
-
+                            <h3>📋 Steckbrief</h3>        
+                            <p><strong>Spitznamen:</strong>{spitznamen}</p>
+                            <p><strong>Wettbewerbe:</strong></p>
                             <ul className="wettbewerbe">
                                 {wettbewerbe.map((wettbewerb) => (
                                     <li key={wettbewerb}>
+                                    
                                         {/* ✏️ DEIN HTML 6: der Name vom Wettbewerb */}
+                                        {wettbewerb}
                                     </li>
                                 ))}
                             </ul>
@@ -121,19 +125,32 @@
                         {team.strEquipment && (
                             <div className="trikot-box">
                                 {/* ✏️ DEIN HTML 8: Überschrift (h3) "👕 Trikot" und das Bild (img className="trikot") */}
-
+                            <h3> Trikot </h3>
+                            <img className="trikot" src={team.strEquipment} alt="Trikot"></img>
+                                
                             </div>
                         )}
 
                         {spiel && (
                             <div className="spiel">
                                 {/* ✏️ DEIN HTML 9a: Überschrift (h3) "⚽ Letztes Spiel" und ein p mit dem Datum */}
+                                <h3> Letzes Spiel </h3>   
+                                {Datum}
+                            
+
+                                
+                            
+                            
+                                
 
 
+                                
+                               
                                 <div className="spielstand">
                                     {/* ✏️ DEIN HTML 9b: Heim-Wappen (img), Heim-Team (p),
                                                         Ergebnis (span className="tore"), Gast-Team (p), Gast-Wappen (img) */}
-
+                                <img src={team.strBanner}></img>
+                                
 
                                 </div>
                             </div>
@@ -147,6 +164,9 @@
                             ))}
 
                             {/* ✏️ DEIN HTML 10: noch ein Link (a className="link-button") zu Wikipedia */}
+
+
+                            <a className="link-button" href={wikipedia} target="_blank">📖 Wikipedia</a>
 
                         </div>
                     </div>

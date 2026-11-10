@@ -279,23 +279,23 @@ footer {
    ===================================================== */
 
 /* CSS 8 – Banner und Überschriften (h3) */
-.banner {
-
+.banner {border-radius: 10px;
+  
 }
 
-.mehr-infos h3 {
+.mehr-infos h3 {;
 
 }
 
 /* CSS 9 – Wettbewerbe-Liste */
-.wettbewerbe li {
+.wettbewerbe li { list-style: "🏆 ";
 
 }
 
 /* CSS 10 – Letztes Spiel */
 .spiel {
-
-}
+    
+    
 
 .tore {
 

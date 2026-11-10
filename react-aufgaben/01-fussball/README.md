@@ -116,7 +116,7 @@ Es lädt sogar das **letzte Spiel** vom Team aus dem Internet.
 | `{wettbewerb}` | Ein Wettbewerb (in der Liste), z. B. *DFB-Pokal* |
 | `{link.name}` / `{link.adresse}` | Name und Adresse von einem Social-Media-Link |
 | `{wikipedia}` | Adresse der Wikipedia-Suche nach dem Team |
-| `{spiel.dateEvent}` | Datum vom letzten Spiel |
+| `C` | Datum vom letzten Spiel |
 | `{spiel.strHomeTeam}` / `{spiel.strAwayTeam}` | Heim-Team / Gast-Team |
 | `{spiel.intHomeScore}` / `{spiel.intAwayScore}` | Tore Heim / Tore Gast |
 | `{spiel.strHomeTeamBadge}` / `{spiel.strAwayTeamBadge}` | Wappen vom Heim-Team / Gast-Team |
