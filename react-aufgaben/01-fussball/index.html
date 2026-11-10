@@ -10,6 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.development.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.development.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.4/babel.min.js"></script>
+
+    <!-- Gespeicherte Sport-Daten (erzeugt mit: node daten-aktualisieren.js) -->
+    <script src="daten.js"></script>
 </head>
 <body>
 
@@ -19,9 +22,12 @@
 
         const { useState, useEffect } = React;
 
-        // Zwischenspeicher: Jede Adresse wird pro Browser-Tab nur einmal geladen.
-        // So bleiben wir unter dem Limit der kostenlosen API, auch bei vielen Klicks und Reloads.
+        // Daten holen: zuerst aus daten.js (gespeichert), sonst aus dem Zwischenspeicher, sonst aus dem Internet.
+        // So bleiben wir unter dem Limit der kostenlosen API (30 Anfragen pro Minute), auch mit der ganzen Klasse.
         function holeDaten(adresse) {
+            if (window.GESPEICHERTE_DATEN && window.GESPEICHERTE_DATEN[adresse]) {
+                return Promise.resolve(window.GESPEICHERTE_DATEN[adresse]);
+            }
             try {
                 const gespeichert = sessionStorage.getItem(adresse);
                 if (gespeichert) return Promise.resolve(JSON.parse(gespeichert));

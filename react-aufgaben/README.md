@@ -83,6 +83,10 @@ Suche im Code nach **`DEIN HTML`** und **`DEIN CSS`**.
 ## Woher kommen die Daten?
 
 - Fußball und Basketball: [TheSportsDB](https://www.thesportsdb.com/) (kostenloser Test-Zugang)
+  > 👩‍🏫 **Für Lehrer:** Der kostenlose Zugang erlaubt nur **30 Anfragen pro Minute**, für die ganze Klasse zusammen.
+  > Deshalb liegen die Daten schon gespeichert in `01-fussball/daten.js` und `02-basketball/daten.js`.
+  > Für frische Daten (z. B. die aktuelle Tabelle) vor dem Unterricht im Ordner `react-aufgaben` ausführen:
+  > `node daten-aktualisieren.js` (dauert ein paar Minuten).
 - Schwimmen: [Wikipedia](https://de.wikipedia.org/)
 - Clash Royale: [RoyaleAPI](https://royaleapi.com/) (Clash Royale ist eine Marke von Supercell)
 - Minecraft (Hotbar und Werkbank): [PrismarineJS](https://github.com/PrismarineJS) (Minecraft ist eine Marke von Mojang Studios)
