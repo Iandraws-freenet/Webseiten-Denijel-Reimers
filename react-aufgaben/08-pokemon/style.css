@@ -422,12 +422,12 @@ footer {
    ===================================================== */
 
 /* CSS 1 – Seite: Hintergrund, Schriftfarbe, Schriftart */
-body {
+body {background-color: rgb(34, 173, 178);
 
 }
 
 /* CSS 2 – Überschrift und Untertitel */
-h1 {
+h1 {text-shadow: 3px 3px 0 #3d7dca;
 
 }
 
@@ -436,7 +436,7 @@ h1 {
 }
 
 /* CSS 3 – Suchfeld und Filter-Buttons (der aktive extra) */
-.suche {
+.suche {border-radius: 15px;
 
 }
 
@@ -444,117 +444,124 @@ h1 {
 
 }
 
-.filter-button.aktiv {
+.filter-button.aktiv { (`.filter-button.aktiv`)
 
 }
 
 /* CSS 4 – Team-Box, Pokémon im Team und leere Plätze */
-.team-box {
+.team-box {background-color: rgb(26, 131, 192);
+    border-radius: 20px;
+    
+}
+
+.team-pokemon {border-color: rgb(0, 0, 0);
+    
 
 }
 
-.team-pokemon {
-
-}
-
-.leer-platz {
+.leer-platz {border: 2px dashed rgb(0, 0, 0);
+    border-radius: 10px;
 
 }
 
 /* CSS 5 – Pokémon-Karte */
-.karte {
+.karte {background-color:rgb(15, 158, 253)
 
 }
 
 /* CSS 6 – Nummer und Bild in der Karte */
 .karte .nummer {
+    
+
 
 }
 
-.karte img {
-
+.karte img {border-radius: 10%; 
+    border: 2px solid rgb(0, 0, 0);
+background-color: lightskyblue
 }
 
 /* CSS 7 – Typ-Abzeichen (alle gleich) */
-.typ {
+.typ {border-radius: 20px
 
 }
 
 /* CSS 8 – Typ-Farben (background-color) */
-.normal {
+
+.normal {background-color:#a8a77a
 
 }
 
-.feuer {
+.feuer {background-color:#ee8130
 
 }
 
-.wasser {
+.wasser {background-color:#6390f0
 
 }
 
-.pflanze {
+.pflanze {background-color:#7ac74c
+}
+
+.elektro {background-color:#f7d02c
 
 }
 
-.elektro {
+.eis {background-color:#96d9d6
 
 }
 
-.eis {
+.kampf {background-color:#c22e28
 
 }
 
-.kampf {
+.gift {background-color:#a33ea1
 
 }
 
-.gift {
+.boden {background-color: #e2bf65
 
 }
 
-.boden {
+.flug {background-color:#a98ff3
 
 }
 
-.flug {
+.psycho {background-color:#f95587
 
 }
 
-.psycho {
+.kaefer {background-color: #a6b91a
 
 }
 
-.kaefer {
+.gestein {background-color:#b6a136
 
 }
 
-.gestein {
+.geist {background-color:#735797
 
 }
 
-.geist {
+.drache {background-color:#6f35fc
 
 }
 
-.drache {
+.stahl {background-color:#b7b7ce
 
 }
 
-.stahl {
-
-}
-
-.fee {
+.fee {background: color #d685ad;
 
 }
 
 /* CSS 9 – Pokémon im Team, "Team komplett"-Box und Fußzeile */
-.im-team {
+.im-team {border-radius: 20px;
 
 }
 
 .team-komplett {
+    
 
 }
 

@@ -129,15 +129,18 @@
 
             return (
                 <div className={imTeam ? "karte im-team" : "karte"} onClick={onKlick}>
-
+                <span className="nummer">{pokemon.nummer}</span>
+                 <img src={bild} alt={pokemon.name} />
+                    <h3>{pokemon.name}</h3>
                     {/* ✏️ DEIN HTML 2: Nummer (span className="nummer") mit {pokemon.nummer},
                                        Bild (img) mit src={bild} und Name (h3) mit {pokemon.name} */}
 
+                                
 
                     <div className="typen">
                         {pokemon.typen.map((typ) => (
                             <span key={typ.klasse} className={"typ " + typ.klasse}>
-                                {/* ✏️ DEIN HTML 2: der Name vom Typ {typ.name} */}
+                                {typ.name}
                             </span>
                         ))}
                     </div>
@@ -166,9 +169,9 @@
 
             return (
                 <div className="team-pokemon" onClick={onKlick}>
-
-                    {/* ✏️ DEIN HTML 3: Bild (img) und Name (p) */}
-
+                <img src={bild} alt={pokemon.name}/>
+                <p>{pokemon.name}</p>
+               
                 </div>
             );
         }
@@ -196,23 +199,33 @@
                         {/* ✏️ DEIN HTML 7: großes Bild (img className="artwork") mit src={artwork},
                                            Nummer und Name in einer h2 ({pokemon.nummer} {pokemon.name})
                                            und die Kategorie (p className="kategorie") mit {pokemon.kategorie} */}
+                        <img className="artwork" src={artwork} alt={pokemon.name} />
+                        <h2>{pokemon.nummer}{pokemon.nummer}</h2>
+                        <p className="kategorie">{pokemon.kategorie}</p>
 
 
                         <div className="typen">
                             {pokemon.typen.map((typ) => (
                                 <span key={typ.klasse} className={"typ " + typ.klasse}>
                                     {/* ✏️ DEIN HTML 7: der Name vom Typ {typ.name} */}
-                                </span>
+                                {typ.name}
+                                    </span>
+
                             ))}
                         </div>
 
                         {/* ✏️ DEIN HTML 8: der Pokédex-Text (p className="pokedex-text") mit {pokemon.text} */}
-
+                        <p className="pokedex-text">{pokemon.text}</p>
 
                         <div className="masse">
                             {/* ✏️ DEIN HTML 8: zwei Kästchen (div className="mass"), in jedem ein Titel (span) und ein Wert (strong):
                                                📏 Größe {pokemon.groesse} m  und  ⚖️ Gewicht {pokemon.gewicht} kg */}
-
+                                        {pokemon.kategorie} |
+|                                       {pokemon.text}
+|                                       {pokemon.groesse}
+|                                       {pokemon.gewicht}
+|                                       {w.name}
+|                                       {w.wert}
                         </div>
 
                         <div className="basiswerte">
@@ -220,12 +233,19 @@
                                 <div key={w.name} className="wert-zeile">
                                     <span className="wert-name">
                                         {/* ✏️ DEIN HTML 9: der Name vom Wert {w.name} */}
-                                    </span>
+                                   {pokemon.kategorie} |
+|                                       {pokemon.text}
+|                                       {pokemon.groesse}
+|                                       {pokemon.gewicht}
+|                                       {w.name}
+|                                       {w.wert}
+                                 </span>
                                     <div className="balken-platz">
                                         <div className="balken" style={{ width: Math.min(100, (w.wert / 160) * 100) + "%" }}></div>
                                     </div>
                                     <strong className="wert-zahl">
                                         {/* ✏️ DEIN HTML 9: die Zahl {w.wert} */}
+                                       {w.wert}
                                     </strong>
                                 </div>
                             ))}
@@ -234,7 +254,8 @@
                         <div className="link-leiste">
                             {/* ✏️ DEIN HTML 10: zwei Links (a className="link-button" target="_blank"):
                                                 📖 PokéWiki mit {pokewiki} und ▶️ YouTube mit {youtube} */}
-
+                        {pokewiki}
+                        {youtube}
                         </div>
 
                         <button className="team-button" onClick={onTeam} disabled={teamVoll && !imTeam}>
@@ -343,7 +364,8 @@
 
                     <header>
                         {/* ✏️ DEIN HTML 1: Überschrift (h1) und Untertitel (p className="untertitel") */}
-
+                    <h1>Mein Pokedex</h1>
+                    <p className="untertitel">Finde dein Team und teste dein Wissen!</p>
                     </header>
 
                     <section className="team-box">
@@ -358,7 +380,7 @@
 
                         <div className="team-info">
                             {/* ✏️ DEIN HTML 4: ein p mit {anzahlImTeam} / 6 Pokémon */}
-
+                        <p> {anzahlImTeam} </p>
                         </div>
 
                         {/* ⭐⭐ TEIL 4: zwei Knöpfe (das JavaScript ist fertig) */}
@@ -375,7 +397,7 @@
                     {anzahlImTeam === TEAM_GROESSE && (
                         <div className="team-komplett">
                             {/* ✏️ DEIN HTML 5: "🎉 Dein Team ist komplett!" */}
-
+                        <h2>Dein Team ist Komplett</h2>
                         </div>
                     )}
 

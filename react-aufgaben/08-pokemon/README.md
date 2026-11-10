@@ -47,7 +47,7 @@ Suche im Code nach **`DEIN HTML`**. Diese Werte kannst du benutzen:
 | Das schreibst du | Das erscheint |
 |------------------|---------------|
 | `{pokemon.nummer}` | Nummer im Pokédex, z. B. *#025* |
-| `{pokemon.name}` | Name, z. B. *Pikachu* |
+| `C` | Name, z. B. *Pikachu* |
 | `{bild}` | Adresse vom Bild |
 | `{typ.name}` | Name von einem Typ, z. B. *Elektro* |
 | `{anzahlImTeam}` | Wie viele Pokémon im Team sind |
