@@ -6,8 +6,9 @@
 // Mit den gespeicherten Daten fragen die Apps im Unterricht (fast) nie im Internet nach.
 //
 // Ausführen (für Lehrer, vor dem Unterricht), im Ordner react-aufgaben:
-//     node daten-aktualisieren.js
-// Dauer: ein paar Minuten, weil langsam geladen wird (unter dem Limit).
+//     node daten-aktualisieren.js                  (alles)
+//     node daten-aktualisieren.js valorant         (nur eine Aufgabe: fussball, basketball, valorant oder pokemon)
+// Dauer: Fußball und Basketball 20 bis 30 Minuten (langsam wegen des Limits), Valorant und Pokémon ein paar Sekunden.
 // =====================================================
 
 const fs = require("fs");
@@ -121,9 +122,62 @@ async function basketball() {
     speichern("02-basketball", ergebnis);
 }
 
+// Valorant: valorant-api.com hat kein strenges Limit, deshalb ohne Pause und ohne Fortschritt.
+// Nur die Felder, die die App braucht, damit daten.js klein bleibt.
+async function valorant() {
+    console.log("🎯 Valorant");
+    const AGENTEN_URL = "https://valorant-api.com/v1/agents?isPlayableCharacter=true&language=de-DE";
+    const MAPS_URL = "https://valorant-api.com/v1/maps?language=de-DE";
+    const nur = (objekt, felder) => Object.fromEntries(felder.map((f) => [f, objekt[f]]));
+
+    const agenten = await (await fetch(AGENTEN_URL)).json();
+    const maps = await (await fetch(MAPS_URL)).json();
+
+    const ergebnis = {
+        [AGENTEN_URL]: {
+            status: agenten.status,
+            data: agenten.data.map((a) => ({
+                ...nur(a, ["uuid", "displayName", "description", "displayIcon", "fullPortrait", "background", "backgroundGradientColors"]),
+                role: nur(a.role, ["displayName", "displayIcon"]),
+                abilities: a.abilities.map((f) => nur(f, ["slot", "displayName", "description", "displayIcon"]))
+            }))
+        },
+        [MAPS_URL]: {
+            status: maps.status,
+            data: maps.data
+                .filter((m) => m.tacticalDescription)
+                .map((m) => nur(m, ["uuid", "displayName", "tacticalDescription", "splash"]))
+        }
+    };
+    speichern("07-valorant", ergebnis);
+}
+
+// Pokémon: die ersten 151 mit EINER GraphQL-Abfrage (PokéAPI erlaubt 100 Abfragen pro Stunde).
+// Die Abfrage muss genauso lauten wie POKEMON_ABFRAGE in 08-pokemon/index.html.
+async function pokemon() {
+    console.log("🔴 Pokémon");
+    const html = fs.readFileSync(path.join(__dirname, "08-pokemon", "index.html"), "utf8");
+    const abfrage = html.match(/const POKEMON_ABFRAGE = `([\s\S]*?)`;/)[1];
+    const antwort = await fetch("https://graphql.pokeapi.co/v1beta2", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: abfrage })
+    });
+    const daten = await antwort.json();
+    if (!daten.data) throw new Error("PokéAPI: " + JSON.stringify(daten).slice(0, 200));
+    speichern("08-pokemon", { "pokemon-151": daten });
+}
+
+// Ohne Angabe wird alles geladen. Nur eine Aufgabe: node daten-aktualisieren.js valorant
+const AUFGABEN = { fussball, basketball, valorant, pokemon };
+
 (async () => {
-    await fussball();
-    await basketball();
+    const auswahl = process.argv.slice(2);
+    const namen = auswahl.length > 0 ? auswahl : Object.keys(AUFGABEN);
+    for (const name of namen) {
+        if (!AUFGABEN[name]) throw new Error("Unbekannt: " + name + " (möglich: " + Object.keys(AUFGABEN).join(", ") + ")");
+        await AUFGABEN[name]();
+    }
     fs.rmSync(FORTSCHRITT, { force: true });   // alles da, beim nächsten Mal frisch laden
     console.log("Fertig! 🎉");
 })().catch((fehler) => {
