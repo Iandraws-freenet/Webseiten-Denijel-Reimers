@@ -46,6 +46,14 @@ Das Bestellen macht der Befehl `fetch`. Den haben wir schon für dich geschriebe
 
 Jede Aufgabe hat 2 Teile: **Teil 1 – HTML** und **Teil 2 – CSS**.
 Fußball, Basketball und Clash Royale haben zusätzlich **Teil 3 – ⭐ Erweiterung**: Klick auf ein Team oder eine Karte → mehr Infos und Links ins Internet.
+Und für Profis gibt es dort noch **Teil 4 – ⭐⭐ Erweiterung**:
+
+| Aufgabe | Teil 4 |
+|---------|--------|
+| ⚽ Fußball | 🏆 Tabelle der Liga und 👥 Spieler mit Foto und Rückennummer |
+| 🏀 Basketball | ⚔️ Team-Vergleich: Welches Team gewinnt? |
+| 👑 Clash Royale | 🎲 Zufalls-Deck und 📊 Deck-Analyse mit Elixier-Kurve |
+
 Suche im Code nach **`DEIN HTML`** und **`DEIN CSS`**.
 
 ## So startest du
