@@ -33,24 +33,16 @@
                 if (gespeichert) return Promise.resolve(JSON.parse(gespeichert));
             } catch (e) { /* ohne Zwischenspeicher weiterarbeiten */ }
             return fetch(adresse)
-<<<<<<< HEAD
                 .then((antwort) => {
                     if (!antwort.ok) throw new Error("HTTP " + antwort.status);
                     return antwort.json();
                 })
-=======
-                .then((antwort) => antwort.json())
->>>>>>> b6ecc1a268e925208db3c3a493c09f4a7cbb739d
                 .then((daten) => {
                     try { sessionStorage.setItem(adresse, JSON.stringify(daten)); } catch (e) { }
                     return daten;
                 });
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b6ecc1a268e925208db3c3a493c09f4a7cbb739d
         const LIGEN = [
             { name: "Bundesliga", code: "German_Bundesliga", id: 4331 },
             { name: "Premier League", code: "English_Premier_League", id: 4328 },
@@ -294,16 +286,9 @@
                 setLaedt(true);
                 setAusgewaehlt(null);
                 holeDaten("https://www.thesportsdb.com/api/v1/json/123/search_all_teams.php?l=" + liga)
-<<<<<<< HEAD
-                    .then((daten) => {
-                        setTeams(daten.teams || []);
-                        setLaedt(false);
-                    });
-=======
                     .then((daten) => setTeams(daten.teams || []))
                     .catch(() => setTeams([]))
                     .finally(() => setLaedt(false));
->>>>>>> b6ecc1a268e925208db3c3a493c09f4a7cbb739d
             }, [liga]);
 
             // ⭐⭐ TEIL 4 (fertig): die Tabelle der Liga laden (der kostenlose Zugang liefert die Top 5)
